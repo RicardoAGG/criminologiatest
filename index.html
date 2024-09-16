@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Perfiles Criminales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .caso {
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .caso img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+        .pregunta {
+            margin-bottom: 10px;
+        }
+        select, button {
+            margin: 5px 0;
+            padding: 5px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cuestionario de Perfiles Criminales</h1>
+    
+    <div id="cuestionario">
+        <div class="caso">
+            <h3>Caso 1: El Delincuente Juvenil</h3>
+            <img src="https://github.com/RicardoAGG/criminologiatest/raw/6fdfeea67837c2a51fa6a5e3f0530b3e674b19b5/image%20(13).jpeg" alt="Delincuente Juvenil">
+            <p>Juan, de 16 años, ha sido arrestado por robo a mano armada. Proviene de un barrio marginal y tiene antecedentes de abuso familiar.</p>
+            <div class="pregunta">
+                <label>¿Qué corriente criminológica es más relevante?</label>
+                <select id="corriente1">
+                    <option value="">Selecciona una opción</option>
+                    <option value="sociologica">Sociológica</option>
+                    <option value="psicologica">Psicológica</option>
+                    <option value="biologica">Biológica</option>
+                    <option value="clinica">Clínica</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label>¿Qué meta criminológica debería priorizarse?</label>
+                <select id="meta1">
+                    <option value="">Selecciona una opción</option>
+                    <option value="prevencion">Prevención del delito</option>
+                    <option value="tratamiento">Tratamiento del delincuente</option>
+                    <option value="causal">Determinación causal del delito</option>
+                    <option value="prediccion">Predicción y medición de la criminalidad</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="caso">
+            <h3>Caso 2: El Estafador Corporativo</h3>
+            <img src="https://github.com/RicardoAGG/criminologiatest/raw/6fdfeea67837c2a51fa6a5e3f0530b3e674b19b5/image%20(14).jpeg" alt="Estafador Corporativo">
+            <p>María, ejecutiva de 45 años, ha sido acusada de fraude financiero en una gran corporación. No tiene antecedentes penales.</p>
+            <div class="pregunta">
+                <label>¿Qué corriente criminológica es más relevante?</label>
+                <select id="corriente2">
+                    <option value="">Selecciona una opción</option>
+                    <option value="sociologica">Sociológica</option>
+                    <option value="psicologica">Psicológica</option>
+                    <option value="critica">Crítica</option>
+                    <option value="clinica">Clínica</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label>¿Qué meta criminológica debería priorizarse?</label>
+                <select id="meta2">
+                    <option value="">Selecciona una opción</option>
+                    <option value="prevencion">Prevención del delito</option>
+                    <option value="tratamiento">Tratamiento del delincuente</option>
+                    <option value="causal">Determinación causal del delito</option>
+                    <option value="prediccion">Predicción y medición de la criminalidad</option>
+                </select>
+            </div>
+        </div>
+
+        <button onclick="evaluarRespuestas()">Evaluar Respuestas</button>
+    </div>
+
+    <div id="resultado"></div>
+
+    <script>
+        function evaluarRespuestas() {
+            let puntaje = 0;
+            let retroalimentacion = "";
+
+            // Evaluar Caso 1
+            if (document.getElementById("corriente1").value === "sociologica") {
+                puntaje++;
+                retroalimentacion += "Caso 1 - Corriente: Correcto. La corriente sociológica es relevante debido al contexto social del delincuente.\n";
+            } else {
+                retroalimentacion += "Caso 1 - Corriente: Incorrecto. Considera el contexto social del delincuente.\n";
+            }
+
+            if (document.getElementById("meta1").value === "prevencion") {
+                puntaje++;
+                retroalimentacion += "Caso 1 - Meta: Correcto. La prevención del delito es crucial para jóvenes en riesgo.\n";
+            } else {
+                retroalimentacion += "Caso 1 - Meta: Incorrecto. Piensa en cómo prevenir futuros delitos en jóvenes.\n";
+            }
+
+            // Evaluar Caso 2
+            if (document.getElementById("corriente2").value === "critica") {
+                puntaje++;
+                retroalimentacion += "Caso 2 - Corriente: Correcto. La corriente crítica es relevante al analizar delitos de cuello blanco.\n";
+            } else {
+                retroalimentacion += "Caso 2 - Corriente: Incorrecto. Considera el contexto corporativo y estructural del delito.\n";
+            }
+
+            if (document.getElementById("meta2").value === "causal") {
+                puntaje++;
+                retroalimentacion += "Caso 2 - Meta: Correcto. Determinar las causas es crucial para entender y prevenir el fraude corporativo.\n";
+            } else {
+                retroalimentacion += "Caso 2 - Meta: Incorrecto. Piensa en la importancia de entender las causas del fraude corporativo.\n";
+            }
+
+            document.getElementById("resultado").innerHTML = `Puntaje: ${puntaje}/4<br><br>Retroalimentación:<br>${retroalimentacion.replace(/\n/g, '<br>')}`;
+        }
+    </script>
+</body>
+</html>
